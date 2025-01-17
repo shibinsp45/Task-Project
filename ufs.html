@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Navbar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        /* Centering the <a> tags */
+        .navbar-center {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+        .btn-outline-success {
+            color: red !important;
+            border-color: red !important;
+        }
+        .btn-outline-success:hover {
+            background-color: red !important;
+            color: white !important;
+        }
+        /* Centering links in navbar */
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding-top: 20px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+        }
+        /* Breadcrumb styles */
+        .breadcrumb {
+            padding-left: 0;
+            background-color: transparent;
+        }
+        /* Price range slider */
+        .price-range-container {
+            display: flex;
+            flex-direction: column;
+            margin-top: 30px;
+            width: 100%; /* Take full width */
+            align-items: flex-start; /* Align items to the left */
+        }
+        .range-label {
+            margin-bottom: 10px;
+        }
+        .range-slider-container {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 10px; /* Add some space between the elements */
+        }
+        /* Center the search bar */
+        .search-bar-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            width: 50%;
+        }
+        /* Card styling */
+        .card {
+            margin-bottom: 30px;
+        }
+        .product-price {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+        .add-to-cart-btn {
+            width: 100%;
+        }
+        /* Card container styling */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-evenly;
+        }
+        /* Links Section on Right Side */
+        .product-links {
+            margin-left: 30px;
+        }
+        .product-links a {
+            display: block;
+            margin-bottom: 10px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        .product-links a:hover {
+            text-decoration: underline;
+        }
+        /* Footer styling */
+        footer {
+            background-color: #212529;
+            color: white;
+        }
+        .footer-logo {
+            max-width: 100px;
+        }
+        .footer-social-icons a {
+            color: white;
+        }
+        .footer-social-icons a:hover {
+            color: #007bff;
+        }
+        .footer-links ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Left Column Styles */
+        .left-column {
+            width: 25%; /* Set the width of the left column */
+            padding-right: 20px;
+        }
+
+        /* Right Column Styles */
+        .right-column {
+            width: 75%; /* Set the width of the right column */
+        }
+
+        /* For Products */
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        /* Align the buttons below the slider */
+        .price-range-buttons {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        /* Style for secondary navbar below main navbar */
+        .secondary-navbar {
+            background-color: #f8f9fa;
+            padding: 10px 0;
+        }
+
+        .secondary-navbar .nav-item {
+            font-size: 16px;
+        }
+
+        .secondary-navbar .nav-item a {
+            color: black;
+            text-decoration: none;
+        }
+
+        .secondary-navbar .nav-item a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Main Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="./image.png" alt="Brand Icon" width="100" height="70" class="d-inline-block align-text-top me-2">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <div class="navbar-center">
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
+                <div class="d-flex align-items-center ms-auto me-3">
+                    <a href="#" class="text-light me-3"><i class="bi bi-chevron-double-right"></i></a>
+                    <a href="#" class="text-light me-3"><i class="bi bi-hand-thumbs-up"></i></a>
+                    <a href="#" class="text-light me-3"><i class="bi bi-cart"></i></a>
+                    <a href="#" class="text-light me-3"><i class="bi bi-gear"></i></a>
+                </div>
+                <button class="btn btn-primary d-flex align-items-center" type="button">
+                    <i class="bi bi-person me-2"></i> Login
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Secondary Navbar (Centered Links) -->
+     <nav class="navbar secondary-navbar p-20">
+        <div class="container-fluid">
+            <div class="nav-links">
+                <a href="#" class="nav-item">Home</a>
+                <a href="#" class="nav-item">About</a>
+                <a href="#" class="nav-item">Equipments</a>
+                <a href="#" class="nav-item">Services</a>
+                <a href="#" class="nav-item">Parts</a>
+                <a href="#" class="nav-item">Rental</a>
+                <a href="#" class="nav-item">E-books</a>
+                <a href="#" class="nav-item">Contact</a>
+                <a href="#" class="nav-item">Blog</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-4">
+        Home > <b>Sales</b>
+        <div class="row">
+            <!-- Left Column (Categories and Price Range) -->
+            <div class="col-md-3 left-column">
+                <!-- Price Range -->
+                <div class="price-range-container">
+                    <b>Forkit Parts</b>
+                    <b for="priceRange" class="range-label">Price Range</b>
+                    <div class="range-slider-container">
+                        <input type="range" class="form-range" id="priceRange" min="0" max="1000" value="500">
+                        <span class="ms-2">$<span id="priceValue">500</span></span>
+                    </div>
+                    <div class="price-range-buttons">
+                        <button class="btn btn-outline-success">min</button>
+                        <button class="btn btn-outline-success">max</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="product.png" class="card-img-top mt-3" alt="product-image">
+                    <div class="card-body">
+                        <h5 class="card-title">140091 TILT CYLINDER SEAL KIT</h5>
+                        <p class="product-price"><s>$20</s> $18</p>
+                        <button class="btn btn-outline-dark add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- Categories Section -->
+                <div class="product-links mt-4">
+                    <h3>Categories</h3>
+                    <a href="#">Engine Components   ></a>
+                    <a href="#">Transmission Parts ></a>
+                    <a href="#">Electrical Components  ></a>
+                    <a href="#">Brake Systems   ></a>
+                    <a href="#">Tires & Wheels ></a>
+                </div>
+                <div class="card">
+                    <img src="img.png" class="card-img-top" alt="product-image">
+                </div>
+            </div>
+
+            <!-- Right Column (Product List) -->
+            <div class="col-md-9 right-column">
+                <!-- Sort By Dropdown -->
+                <div class="d-flex justify-content-between mb-4">
+                    <div>
+                        <label for="sortBy" class="form-label">Sort By:</label>
+                        <select class="form-select" id="sortBy">
+                            <option value="priceLowToHigh">Price: Low to High</option>
+                            <option value="priceHighToLow">Price: High to Low</option>
+                            <option value="newest">Newest</option>
+                            <option value="bestSelling">Best Selling</option>
+                        </select>
+                    </div>
+                    <div class="search-bar-container">
+                        <form class="d-flex" role="search">
+                            <input class="form-control" type="search" placeholder="Search Products" aria-label="Search Products">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Product List -->
+                <div class="product-list">
+                    <!-- Repeat this card for products -->
+                    <div class="card">
+                        <img src="product.png" class="card-img-top" alt="product-image">
+                        <div class="card-body">
+                            <h5 class="card-title">140091 TILT CYLINDER SEAL KIT</h5>
+                            <p class="product-price"><s>$20</s> $18</p>
+                            <button class="btn btn-outline-dark add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="product.png" class="card-img-top" alt="product-image">
+                        <div class="card-body">
+                            <h5 class="card-title">140091 TILT CYLINDER SEAL KIT</h5>
+                            <p class="product-price"><s>$20</s> $18</p>
+                            <button class="btn btn-outline-dark add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="product.png" class="card-img-top" alt="product-image">
+                        <div class="card-body">
+                            <h5 class="card-title">140091 TILT CYLINDER SEAL KIT</h5>
+                            <p class="product-price"><s>$20</s> $18</p>
+                            <button class="btn btn-outline-dark add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="product.png" class="card-img-top" alt="product-image">
+                        <div class="card-body">
+                            <h5 class="card-title">140091 TILT CYLINDER SEAL KIT</h5>
+                            <p class="product-price"><s>$20</s> $18</p>
+                            <button class="btn btn-outline-dark add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="product.png" class="card-img-top" alt="product-image">
+                        <div class="card-body">
+                            <h5 class="card-title">140091 TILT CYLINDER SEAL KIT</h5>
+                            <p class="product-price"><s>$20</s> $18</p>
+                            <button class="btn btn-outline-dark add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="product.png" class="card-img-top" alt="product-image">
+                        <div class="card-body">
+                            <h5 class="card-title">140091 TILT CYLINDER SEAL KIT</h5>
+                            <p class="product-price"><s>$20</s> $18</p>
+                            <button class="btn btn-outline-dark add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="product.png" class="card-img-top" alt="product-image">
+                        <div class="card-body">
+                            <h5 class="card-title">140091 TILT CYLINDER SEAL KIT</h5>
+                            <p class="product-price"><s>$20</s> $18</p>
+                            <button class="btn btn-outline-dark add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="product.png" class="card-img-top" alt="product-image">
+                        <div class="card-body">
+                            <h5 class="card-title">140091 TILT CYLINDER SEAL KIT</h5>
+                            <p class="product-price"><s>$20</s> $18</p>
+                            <button class="btn btn-outline-dark add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- More product cards... -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 d-flex flex-column align-items-start footer-search-bar mb-3 mb-md-0">
+                    <img src="image.png" alt="Logo" class="footer-logo" width="100" height="100">
+                    <div class="footer-social-icons align-items-left mb-3">
+                        <a href="#" class="text-light me-3"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-light me-3"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-light me-3"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-light me-3"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                    <input type="search" placeholder="Search" class="form-control mb-3 w-auto">
+                </div>
+    
+                <!-- Navigation Categories Section -->
+                <div class="col-md-2 mb-3">
+                    <h5>Navigations</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="" class="text-light">Home</a></li>
+                        <li><a href="" class="text-light">About</a></li>
+                        <li><a href="" class="text-light">E-books</a></li>
+                        <li><a href="" class="text-light">Contact</a></li>
+                        <li><a href="" class="text-light">Blog</a></li>
+                        <li><a href="" class="text-light">Terms and Service</a></li>
+                    </ul>
+                </div>
+                <!-- Footer Links Section -->
+                <div class="col-md-3 footer-links">
+                    <ul>
+                        <h5>Categories</h5>
+                        <li><a href="#" class="text-light">Terms and Service</a></li>
+                        <li><a href="#" class="text-light">Privacy Policy</a></li>
+                        <li><a href="#" class="text-light">Contact</a></li>
+                        <li><a href="#" class="text-light">Blog</a></li>
+                    </ul>
+                </div>
+                <!-- Address Section -->
+                <div class="col-md-3 mb-3">
+                    <h5>Address</h5>
+                    <address class="text-light">
+                        1234 Business Blvd.<br>
+                        City, State, ZIP<br>
+                        Phone: (123) 456-7890<br>
+                        Email: contact@company.com
+                    </address>
+                </div>
+    
+                
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
