@@ -140,8 +140,10 @@
         /* Align the buttons below the slider */
         .price-range-buttons {
             display: flex;
-            justify-content: space-between;
+            justify-content:flex-start;
             width: 100%;
+            margin: 20px;
+            margin-left: 20px;
             margin-top: 10px;
         }
 
@@ -223,9 +225,9 @@
                         <input type="range" class="form-range" id="priceRange" min="0" max="1000" value="500">
                         <span class="ms-2">$<span id="priceValue">500</span></span>
                     </div>
-                    <div class="price-range-buttons">
-                        <button class="btn btn-outline-success">min</button>
-                        <button class="btn btn-outline-success">max</button>
+                    <div class="price-range-buttons ">
+                        <button class="btn btn-outline-dark">min</button>
+                        <button class="btn btn-outline-dark">max</button>
                     </div>
                 </div>
                 <div class="card">
@@ -253,21 +255,19 @@
             <!-- Right Column (Product List) -->
             <div class="col-md-9 right-column">
                 <!-- Sort By Dropdown -->
-                <div class="d-flex justify-content-between mb-4">
-                    <div>
-                        <label for="sortBy" class="form-label">Sort By:</label>
-                        <select class="form-select" id="sortBy">
-                            <option value="priceLowToHigh">Price: Low to High</option>
-                            <option value="priceHighToLow">Price: High to Low</option>
-                            <option value="newest">Newest</option>
-                            <option value="bestSelling">Best Selling</option>
-                        </select>
-                    </div>
+                <div class="jsu">
                     <div class="search-bar-container">
                         <form class="d-flex" role="search">
                             <input class="form-control" type="search" placeholder="Search Products" aria-label="Search Products">
                             <button class="btn btn-outline-success" type="submit">Search</button>
                         </form>
+                    </div>
+                    <div class="mb-4">
+                        <label for="sortBy" class="form-label">Sort By:</label>
+                        <select class="form-select" id="sortBy">
+                            <option value="latest">Latest</option>
+                            <option value="priceHighToLow">Lowest</option>
+                        </select>
                     </div>
                 </div>
 
